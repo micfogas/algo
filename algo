@@ -1,15 +1,10 @@
 #!/usr/bin/env bash
 
-set -e
-
+#set -e
+export ACTIVATE_SCRIPT=".venv/bin/activate"
 if [ -z ${VIRTUAL_ENV+x} ]
-then
-  ACTIVATE_SCRIPT="cd /opt/algo && ./.env/bin/activate"
-  if [ -f "$ACTIVATE_SCRIPT" ]
+  if [ -f ${ACTIVATE_SCRIPT} ]
   . ./.venv/bin/activate
-  then
-    # shellcheck source=/dev/null
-    source "$ACTIVATE_SCRIPT"
   else
     echo "$ACTIVATE_SCRIPT not found.  Did you follow documentation to install dependencies?"
     exit 1
